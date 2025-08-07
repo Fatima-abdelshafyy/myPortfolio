@@ -47,6 +47,7 @@ body {
     background-clip: text;
 }
 
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -55,8 +56,11 @@ body {
     background: rgba(15, 23, 42, 0.9);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Changed from 1rem 0 */
     transition: all 0.3s ease;
+    height: 60px; /* Added fixed height */
+    display: flex; /* Added for better alignment */
+    align-items: center; /* Added for better alignment */
 }
 
 .nav-container {
@@ -66,10 +70,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%; /* Added to fill navbar height */
 }
 
 .nav-logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Reduced from 1.5rem */
     font-weight: 700;
     background: linear-gradient(135deg, #a855f7, #3b82f6);
     -webkit-background-clip: text;
@@ -80,35 +85,37 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem; /* Reduced from 2rem */
+    margin: 0; /* Added to remove default margins */
+    padding: 0; /* Added to remove default padding */
+    height: 100%; /* Added to fill navbar height */
+    align-items: center; /* Added for better alignment */
 }
 
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+/* Update mobile menu positioning */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px; /* Adjusted from 70px to match new navbar height */
+        flex-direction: column;
+        background-color: rgba(15, 23, 42, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 1rem 0; /* Reduced padding */
+    }
+    
+    .hamburger {
+        height: 24px; /* Made hamburger icon smaller */
+    }
+    
+    .hamburger span {
+        width: 22px; /* Reduced from 25px */
+        height: 2px; /* Reduced from 3px */
+    }
 }
-
-.nav-link:hover,
-.nav-link.active {
-    color: #a855f7;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #ffffff;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
 /* Buttons */
 .btn {
     display: inline-flex;
